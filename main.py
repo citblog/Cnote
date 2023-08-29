@@ -30,11 +30,11 @@ class MyApp:
         self.middle_window = urwid.LineBox(
             urwid.Filler(urwid.Text("Middle Window")), title="Middle"
         )
-        self.button_1 = urwid.Button("Button 1")
-        self.button_2 = urwid.Button("Button 2")
-        self.button_3 = urwid.Button("Button 3")
-        self.button_4 = urwid.Button("Button 4")
-
+        self.button_1 = urwid.Button("Top")
+        self.button_2 = urwid.Button("Up")
+        self.button_3 = urwid.Button("Down")
+        self.button_4 = urwid.Button("Bottom")
+              
         self.middle_left = urwid.Pile(
             [
                 ("weight", 2, self.middle_window),
@@ -50,23 +50,17 @@ class MyApp:
             ]
         )
 
-        self.bottom_window = urwid.LineBox(
-            urwid.Filler(urwid.Text("Bottom Window")), title="Bottom"
-        )
-        self.button_5 = urwid.Button("Button 5")
-        self.button_6 =urwid.Button("Button 6")
+        self.bottom_window = urwid.LineBox(urwid.Filler(urwid.Text("Bottom Window")), title="Bottom")
+        self.button_5 = urwid.Button("Find")
+        self.button_6 =urwid.Button("Clear find")
 
-        self.bottom_left = urwid.Pile(
-            [
-                ("weight", 2, self.bottom_window),
-            ]
-        )
+        self.bottom_left = urwid.Pile([("weight", 2, self.bottom_window),])
 
         self.bottom_right = urwid.Pile(
-            [
-                ("pack", self.button_5),
-                ("pack", self.button_6),
-            ]
+           [
+               ("pack", self.button_5),
+               ("pack", self.button_6),
+           ]
         )
 
         ##last_window = urwid.LineBox(urwid.Filler(urwid.Text("Last Window")), title="Last")
@@ -112,8 +106,10 @@ class MyApp:
                 ),
                 urwid.Columns(
                     [
-                        ("weight", 3, self.bottom_left),
-                        ("weight", 1, self.bottom_right),
+            
+                     ("weight", 3, self.bottom_left),
+                      ("weight", 1, self.bottom_right),
+            
                     ]
                 ),
                 ("pack", self.last_buttons),
